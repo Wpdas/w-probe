@@ -61,5 +61,5 @@ typings/
 .next
 
 # wprobe
-log/*
-images/*
+log/**
+images/**

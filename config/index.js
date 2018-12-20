@@ -6,6 +6,7 @@ module.exports = {
   TIME_HIGHT_ACTIVITY: '19:00:00', // hight activity this time on
   SYSTEM_PATH: '',
   IMAGES_PATH: '',
+  LOG_PATH: '',
   LOG_FILE_NAMES: {
     TEMPERATURE: 'temperature.dat',
     LAST_BACKUP: 'last-backup.dat',

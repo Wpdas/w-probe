@@ -8,6 +8,9 @@ const config = require('./config');
 // Initial settings
 config.SYSTEM_PATH = __dirname;
 config.IMAGES_PATH = `${__dirname}/images`;
+config.LOG_PATH = `${__dirname}/log`;
+createFolder(config.IMAGES_PATH);
+createFolder(config.LOG_PATH);
 temperatureRoutine();
 photoRoutine();
 
