@@ -7,12 +7,15 @@ const config = require('./config');
 
 // Initial settings
 config.SYSTEM_PATH = __dirname;
-config.IMAGES_PATH = `${__dirname}/images`;
-config.LOG_PATH = `${__dirname}/log`;
+config.IMAGES_PATH = `${config.SYSTEM_PATH}/images`;
+config.LOG_PATH = `${config.SYSTEM_PATH}/log`;
 createFolder(config.IMAGES_PATH);
 createFolder(config.LOG_PATH);
-temperatureRoutine();
-photoRoutine();
+// temperatureRoutine();
+// photoRoutine();
+
+const currentDate = getSimpleDate();
+console.log(config.PROBE_COMMANDS.TAKE_PHOTO_NIGHT_MODE(currentDate));
 
 // Initialize Default Routines
 setInterval(() => {
@@ -28,13 +31,13 @@ function temperatureRoutine() {
     .getTemperature()
     .then(temperature => {
       writeFile(
-        `${config.SYSTEM_PATH}/log/${config.LOG_FILE_NAMES.TEMPERATURE}`,
+        `${config.LOG_PATH}/${config.LOG_FILE_NAMES.TEMPERATURE}`,
         temperature
       );
     })
     .catch(error => {
       writeFile(
-        `${config.SYSTEM_PATH}/log/${config.LOG_FILE_NAMES.TEMPERATURE}`,
+        `${config.LOG_PATH}/${config.LOG_FILE_NAMES.TEMPERATURE}`,
         'N/A'
       );
       console.info('Error on get system temperature.');
