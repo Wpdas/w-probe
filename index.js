@@ -6,16 +6,15 @@ const writeFile = require('./functions/write-file');
 const config = require('./config');
 
 // Initial settings
+console.info('Initializing WProbe System...');
 config.SYSTEM_PATH = __dirname;
 config.IMAGES_PATH = `${config.SYSTEM_PATH}/images`;
 config.LOG_PATH = `${config.SYSTEM_PATH}/log`;
 createFolder(config.IMAGES_PATH);
 createFolder(config.LOG_PATH);
-// temperatureRoutine();
-// photoRoutine();
-
-const currentDate = getSimpleDate();
-console.log(config.PROBE_COMMANDS.TAKE_PHOTO_NIGHT_MODE(currentDate));
+console.info('System is ready');
+temperatureRoutine();
+photoRoutine();
 
 // Initialize Default Routines
 setInterval(() => {
