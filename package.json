@@ -1,0 +1,29 @@
+{
+  "name": "w-probe",
+  "version": "1.0.0",
+  "description": "Software used by WProbe probe.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test:takePhotoNight": "node /tests/takePhotoNightMode",
+    "test:takePhotoDay": "node /tests/takePhotoDayMode",
+    "test:readTemperature": "node /tests/readTemperatureLog.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wpdas/w-probe.git"
+  },
+  "keywords": [
+    "w-probe",
+    "wprobe"
+  ],
+  "author": "Wenderson Pires da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wpdas/w-probe/issues"
+  },
+  "homepage": "https://github.com/Wpdas/w-probe#readme",
+  "dependencies": {
+    "raspberry-info": "^1.0.4"
+  }
+}
