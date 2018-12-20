@@ -52,10 +52,10 @@ function photoRoutine() {
 
   let currentExec = exec(
     config.PROBE_COMMANDS.TAKE_PHOTO_NIGHT_MODE(currentDate, currentTime),
-    (err, stdout) => {
+    err => {
       currentExec.kill();
       if (err) return console.error('Error taking photo!');
-      console.info('The photo is done: ', stdout);
+      console.info('The new photo is done.');
     }
   );
 }

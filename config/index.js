@@ -2,7 +2,7 @@ module.exports = {
   SAVE_LOG_INTERVAL: 315000, // 5 minutes 15 seconds
   TAKE_PHOTO_INTERVAL: 300000, // 5 minutes
   CHECK_ROUTINES: 43200000, // 12 Hours (used to check other routines such as backup for example)
-  TIME_LOW_ACTIVITY: '06:00:00', // low activity this time on
+  TIME_LOW_ACTIVITY: '07:30:00', // low activity this time on
   TIME_HIGHT_ACTIVITY: '19:00:00', // hight activity this time on
   SYSTEM_PATH: '',
   IMAGES_PATH: '',
@@ -16,12 +16,12 @@ module.exports = {
     TAKE_PHOTO_NIGHT_MODE: (path, filename) => {
       return `cd ${
         module.exports.IMAGES_PATH
-      } && raspistill -v -ISO 800 -ss 6000000 -br 55 -co 45 -drc high -rot 180 -o ${path}/image${filename}.jpg`;
+      } && raspistill -ISO 800 -ss 6000000 -br 55 -co 45 -drc high -rot 180 -a 12 -a "WProbe:" -o ${path}/image${filename}.jpg`;
     },
     TAKE_PHOTO_DAY_MODE: (path, filename) => {
       return `cd ${
         module.exports.IMAGES_PATH
-      } && raspistill -v -rot 180 -o ${path}/image${filename}.jpg`;
+      } && raspistill -rot 180 -a 12 -a "WProbe:" -o ${path}/image${filename}.jpg`;
     }
   }
 };
