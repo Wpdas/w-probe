@@ -13,15 +13,15 @@ module.exports = {
     LIST_FILES_AVAILABLE: 'list-files-available.dat'
   },
   PROBE_COMMANDS: {
-    TAKE_PHOTO_NIGHT_MODE: path => {
+    TAKE_PHOTO_NIGHT_MODE: (path, filename) => {
       return `cd ${
         module.exports.IMAGES_PATH
-      } && raspistill -ISO 800 -ss 6000000 -br 55 -co 45 -drc high -rot 180 -o ${path}/image_%04d.jpg`;
+      } && raspistill -v -ISO 800 -ss 6000000 -br 55 -co 45 -drc high -rot 180 -o ${path}/image${filename}.jpg`;
     },
-    TAKE_PHOTO_DAY_MODE: path => {
+    TAKE_PHOTO_DAY_MODE: (path, filename) => {
       return `cd ${
         module.exports.IMAGES_PATH
-      } && raspistill -rot 180 -o ${path}/image_%04d.jpg`;
+      } && raspistill -v -rot 180 -o ${path}/image${filename}.jpg`;
     }
   }
 };

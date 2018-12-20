@@ -2,6 +2,7 @@ const exec = require('child_process').exec;
 const createFolder = require('./functions/create-folder');
 const getSystemTemperature = require('./functions/get-system-temperature');
 const getSimpleDate = require('./functions/get-simple-date');
+const getTime = require('./functions/get-time');
 const writeFile = require('./functions/write-file');
 const config = require('./config');
 
@@ -46,10 +47,11 @@ function temperatureRoutine() {
 function photoRoutine() {
   // Check / Create path for current date
   const currentDate = getSimpleDate();
+  const currentTime = getTime();
   createFolder(`${config.IMAGES_PATH}/${currentDate}`);
 
   let currentExec = exec(
-    config.PROBE_COMMANDS.TAKE_PHOTO_NIGHT_MODE(currentDate),
+    config.PROBE_COMMANDS.TAKE_PHOTO_NIGHT_MODE(currentDate, currentTime),
     (err, stdout) => {
       currentExec.kill();
       if (err) return console.error('Error taking photo!');
