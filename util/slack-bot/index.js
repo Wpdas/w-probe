@@ -11,10 +11,14 @@ module.exports = function() {
 
   // Ready
   bot.on('start', function() {
-    bot.postMessageToChannel('wprobe', 'The probe has just woken up.', {
-      slackbot: true,
-      as_user: true
-    });
+    bot.postMessageToChannel(
+      config.SLACK_CHANNEL,
+      'The probe has just woken up.',
+      {
+        slackbot: true,
+        as_user: true
+      }
+    );
     console.info('WProbe Slack profile activated.');
   });
 
@@ -28,7 +32,7 @@ module.exports = function() {
 
   // Send response
   function sendResponse(response) {
-    slackBot.bot.postMessageToChannel('wprobe_activity', response, {
+    slackBot.bot.postMessageToChannel(config.SLACK_CHANNEL, response, {
       as_user: true,
       slackbot: true
     });

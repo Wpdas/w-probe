@@ -41,7 +41,6 @@ function temperatureRoutine() {
     .then(temperature => {
       // Send a warning in case of temperature is very high
       const simpleTemperature = parseInt(temperature.replace('°C', ''));
-      console.log(simpleTemperature);
       if (simpleTemperature > 70) {
         slackBotInstance.sendResponse(
           `Warning: The system temperature is very high!`

@@ -1,5 +1,6 @@
 module.exports = {
-  BOT_TOKEN: 'xoxb-263124246064-509501238866-G3GaKtJSqyqHV35fnrZQ9Aen',
+  BOT_TOKEN: 'xoxb-263124246064-510998198758-MDXfKdUkr6NGsG0LIsGkMev6',
+  SLACK_CHANNEL: 'wprobe_activity',
   SAVE_LOG_INTERVAL: 315000, // 5 minutes 15 seconds
   TAKE_PHOTO_INTERVAL: 300000, // 5 minutes
   CHECK_ROUTINES: 43200000, // 12 Hours (used to check other routines such as backup for example)
