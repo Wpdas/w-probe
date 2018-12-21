@@ -25,6 +25,7 @@ module.exports = function() {
   // Receive MSG
   bot.on('message', function(data) {
     if (data.type === 'message') {
+      console.log('A:', data.text);
       let response = actions(data.text);
       sendResponse(response);
     }
@@ -32,6 +33,7 @@ module.exports = function() {
 
   // Send response
   function sendResponse(response) {
+    console.log('sendResponse:', response);
     bot.postMessageToChannel(config.SLACK_CHANNEL, response, {
       as_user: true,
       slackbot: true

@@ -16,10 +16,11 @@ function status() {
 }
 
 module.exports = text => {
+  console.log('receive text:', text);
   switch (text) {
     case STATUS:
       return status();
     default:
-      return status(); // Default
+      return;
   }
 };
