@@ -2,7 +2,7 @@ module.exports = {
   BOT_TOKEN: '---------------',
   SLACK_CHANNEL: 'wprobe_activity',
   SAVE_LOG_INTERVAL: 315000, // 5 minutes 15 seconds
-  TAKE_PHOTO_INTERVAL: 300000, // 5 minutes
+  TAKE_PHOTO_INTERVAL: 1500000, // 25 minutes
   CHECK_ROUTINES: 43200000, // 12 Hours (used to check other routines such as backup for example)
   TIME_LOW_ACTIVITY: '05:30:00', // low activity this time on
   TIME_HIGHT_ACTIVITY: '19:00:00', // hight activity this time on
