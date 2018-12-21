@@ -6,7 +6,7 @@ module.exports = function() {
   // Create a bot
   const bot = new SlackBot({
     token: config.BOT_TOKEN,
-    name: 'wprobe'
+    name: 'W Probe'
   });
 
   // Ready
