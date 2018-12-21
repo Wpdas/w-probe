@@ -29,7 +29,16 @@ setInterval(() => {
 }, config.SAVE_LOG_INTERVAL);
 
 setInterval(() => {
-  photoRoutine();
+  //Check time
+  let currentTime = new Date();
+  if (
+    (currentTime.getHours() >= config.TIME_HIGHT_ACTIVITY &&
+      currentTime.getHours() <= 23) ||
+    (currentTime.getHours() >= 0 &&
+      currentTime.getHours() < config.TIME_LOW_ACTIVITY)
+  ) {
+    photoRoutine();
+  }
 }, config.TAKE_PHOTO_INTERVAL);
 
 setInterval(checkDefaultRoutines, config.CHECK_ROUTINES);
