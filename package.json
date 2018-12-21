@@ -4,10 +4,7 @@
   "description": "Software used by WProbe probe.",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "test:takePhotoNight": "node /tests/takePhotoNightMode",
-    "test:takePhotoDay": "node /tests/takePhotoDayMode",
-    "test:readTemperature": "node /tests/readTemperatureLog.js"
+    "start": "node index"
   },
   "repository": {
     "type": "git",
@@ -24,6 +21,8 @@
   },
   "homepage": "https://github.com/Wpdas/w-probe#readme",
   "dependencies": {
-    "raspberry-info": "^1.0.4"
+    "external-ip": "^2.1.1",
+    "raspberry-info": "^1.0.4",
+    "slackbots": "^1.2.0"
   }
 }

@@ -1,11 +1,9 @@
 const fs = require('fs');
 
 module.exports = (filename, content) => {
-  console.log();
-
-  fs.writeFile(filename, content, function(err) {
+  fs.writeFile(filename, content, err => {
     if (err) {
-      return console.log(err);
+      return console.error(err);
     }
   });
 };
