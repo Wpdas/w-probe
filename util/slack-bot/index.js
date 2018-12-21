@@ -6,7 +6,7 @@ module.exports = function() {
   // Create a bot
   const bot = new SlackBot({
     token: config.BOT_TOKEN,
-    name: 'W Probe'
+    name: 'wprobe'
   });
 
   // Ready
@@ -32,7 +32,7 @@ module.exports = function() {
 
   // Send response
   function sendResponse(response) {
-    slackBot.bot.postMessageToChannel(config.SLACK_CHANNEL, response, {
+    bot.postMessageToChannel(config.SLACK_CHANNEL, response, {
       as_user: true,
       slackbot: true
     });
