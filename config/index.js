@@ -1,5 +1,5 @@
 module.exports = {
-  BOT_TOKEN: 'xoxb-263124246064-511020426870-EmPAg39YtPw4nSGM7N9Kzm05',
+  BOT_TOKEN: 'xoxb-263124246064-511020426870-cOmzvug3xGfGRFr7xlmuREU0',
   SLACK_CHANNEL: 'wprobe_activity',
   SAVE_LOG_INTERVAL: 315000, // 5 minutes 15 seconds
   TAKE_PHOTO_INTERVAL: 300000, // 5 minutes
@@ -19,7 +19,7 @@ module.exports = {
     TAKE_PHOTO_NIGHT_MODE: (path, filename) => {
       return `cd ${
         module.exports.IMAGES_PATH
-      } && raspistill -ISO 800 -ss 6000000 -br 55 -co 45 -drc high -rot 180 -a 12 -a "WProbe:" -ex verylong -o ${path}/image${filename}.jpg`;
+      } && raspistill -ISO 800 -ss 6000000 -br 55 -co 45 -drc high -rot 180 -a 12 -a "WProbe:" -o ${path}/image${filename}.jpg`;
     },
     TAKE_PHOTO_DAY_MODE: (path, filename) => {
       return `cd ${
