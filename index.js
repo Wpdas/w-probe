@@ -5,7 +5,7 @@ const getSystemTemperature = require('./functions/get-system-temperature');
 const getSimpleDate = require('./functions/get-simple-date');
 const getTime = require('./functions/get-time');
 const writeFile = require('./functions/write-file');
-const SlackBot = require('./util/slack-bot');
+//const SlackBot = require('./util/slack-bot');
 const config = require('./config');
 
 // Initial settings
@@ -16,7 +16,7 @@ config.LOG_PATH = `${config.SYSTEM_PATH}/log`;
 createFolder(config.IMAGES_PATH);
 createFolder(config.LOG_PATH);
 
-const slackBotInstance = SlackBot();
+//const slackBotInstance = SlackBot();
 
 temperatureRoutine();
 photoRoutine();

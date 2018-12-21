@@ -25,7 +25,8 @@ module.exports = function() {
   // Receive MSG
   bot.on('message', function(data) {
     console.log(data.user);
-    if (data.user !== 'AEZPUG3NH' && data.type === 'message') {
+    // if (data.user !== 'AEZPUG3NH' && data.type === 'message') {
+    if (data.type === 'message') {
       console.log('A:', data.text);
       let response = actions(data.text);
       sendResponse(response);
