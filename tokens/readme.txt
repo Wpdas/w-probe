@@ -1,0 +1,1 @@
+All the tokens shold be inserted at the system manualy.

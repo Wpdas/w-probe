@@ -44,6 +44,7 @@ Here is the actual supported commands:
 }
 
 module.exports = text => {
+  text = text.toLowerCase();
   let response =
     'Sorry, but I can not understand this command. \n' + commandsAvailable();
   if (text.indexOf(STATUS) != -1) response = status();
