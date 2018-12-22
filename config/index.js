@@ -1,6 +1,7 @@
 module.exports = {
-  BOT_TOKEN: '---------------',
+  BOT_TOKEN: 'xoxb-263124246064-511020426870-3dctOsepxd13O5KlVaav4SQE',
   SLACK_CHANNEL: 'wprobe_activity',
+  DELAY_BEFORE_START_WORK: 60000,
   SAVE_LOG_INTERVAL: 315000, // 5 minutes 15 seconds
   TAKE_PHOTO_INTERVAL: 1500000, // 25 minutes
   CHECK_ROUTINES: 43200000, // 12 Hours (used to check other routines such as backup for example)
@@ -11,8 +12,6 @@ module.exports = {
   LOG_PATH: '',
   LOG_FILE_NAMES: {
     TEMPERATURE: 'temperature.dat',
-    LAST_BACKUP: 'last-backup.dat',
-    LIST_FILES_AVAILABLE: 'list-files-available.dat',
     LAST_VALID_EXTERNAL_IP: 'last-valid-external-ip.dat'
   },
   PROBE_COMMANDS: {
