@@ -1,7 +1,7 @@
 module.exports = {
   BOT_TOKEN: '--------',
   SLACK_CHANNEL: 'wprobe_activity',
-  DELAY_BEFORE_START_WORK: 60000,
+  DELAY_BEFORE_START_WORK: 6000000, // 10 minutes
   SAVE_LOG_INTERVAL: 315000, // 5 minutes 15 seconds
   TAKE_PHOTO_INTERVAL: 1500000, // 25 minutes
   CHECK_ROUTINES: 43200000, // 12 Hours (used to check other routines such as backup for example)

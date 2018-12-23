@@ -1,10 +1,21 @@
 const actions = require('./actions');
 
-module.exports = function(slackInstance, config) {
+module.exports = function(
+  slackInstance,
+  config,
+  takePhotoNightSolarModeFunction,
+  takePhotoDayModeFunction
+) {
+  // Init Actions
+  const actionsInstance = actions(
+    takePhotoNightSolarModeFunction,
+    takePhotoDayModeFunction
+  );
+
   // Receive MSG
   slackInstance.on('message', function(data) {
     if (data.user !== 'UF10LCJRL' && data.type === 'message') {
-      let response = actions(data.text);
+      let response = actionsInstance.process(data.text);
       sendResponse(response);
     }
   });

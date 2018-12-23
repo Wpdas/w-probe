@@ -17,7 +17,20 @@ const slackBot = new SlackBot({
 
 // Ready
 slackBot.on('start', function() {
-  botMessageController = slackBotSetup(slackBot, config);
+  const takeNightSolarPhoto = () => {
+    photoRoutine(config.PROBE_COMMANDS.TAKE_PHOTO_NIGHT_MODE);
+  };
+
+  const takeDayPhoto = () => {
+    photoRoutine(config.PROBE_COMMANDS.TAKE_PHOTO_DAY_MODE);
+  };
+
+  botMessageController = slackBotSetup(
+    slackBot,
+    config,
+    takeNightSolarPhoto,
+    takeDayPhoto
+  );
   initProbe();
 });
 
@@ -36,7 +49,7 @@ function initProbe() {
 
 function startProcesses() {
   temperatureRoutine();
-  photoRoutine();
+  photoRoutine(config.PROBE_COMMANDS.TAKE_PHOTO_NIGHT_MODE);
   checkExternalIp();
 
   // Initialize Default Routines
@@ -53,7 +66,7 @@ function startProcesses() {
       (currentTime.getHours() >= 0 &&
         currentTime.getHours() < config.TIME_LOW_ACTIVITY)
     ) {
-      photoRoutine();
+      photoRoutine(config.PROBE_COMMANDS.TAKE_PHOTO_NIGHT_MODE);
     }
   }, config.TAKE_PHOTO_INTERVAL);
 
@@ -88,22 +101,19 @@ function temperatureRoutine() {
     });
 }
 
-function photoRoutine() {
+function photoRoutine(mode) {
   // Check / Create path for current date
   const currentDate = getSimpleDate();
   const currentTime = getTime();
   createFolder(`${config.IMAGES_PATH}/${currentDate}`);
 
-  let currentExec = exec(
-    config.PROBE_COMMANDS.TAKE_PHOTO_NIGHT_MODE(currentDate, currentTime),
-    err => {
-      currentExec.kill();
-      if (err)
-        return botMessageController.sendMessage(
-          ':red_circle: Error taking photo!'
-        );
-    }
-  );
+  let currentExec = exec(mode(currentDate, currentTime), err => {
+    currentExec.kill();
+    if (err)
+      return botMessageController.sendMessage(
+        ':red_circle: Error taking photo!'
+      );
+  });
 }
 
 function checkDefaultRoutines() {
