@@ -1,9 +1,9 @@
 module.exports = {
   BOT_TOKEN: '--------',
   SLACK_CHANNEL: 'wprobe_activity',
-  DELAY_BEFORE_START_WORK: 6000000, // 10 minutes
+  DELAY_BEFORE_START_WORK: 180000, // 3 minutes
   SAVE_LOG_INTERVAL: 315000, // 5 minutes 15 seconds
-  TAKE_PHOTO_INTERVAL: 1500000, // 25 minutes
+  TAKE_PHOTO_INTERVAL: 720000, // 12 minutes
   CHECK_ROUTINES: 43200000, // 12 Hours (used to check other routines such as backup for example)
   TIME_LOW_ACTIVITY: 5, // 5:00hs low activity this time on
   TIME_HIGHT_ACTIVITY: 20, // 20:00hs hight activity this time on
@@ -18,12 +18,12 @@ module.exports = {
     TAKE_PHOTO_NIGHT_MODE: (path, filename) => {
       return `cd ${
         module.exports.IMAGES_PATH
-      } && raspistill -ISO 800 -ss 6000000 -br 55 -co 45 -drc high -rot 180 -a 12 -a "WProbe:" -o ${path}/image${filename}.jpg`;
+      } && raspistill -ISO 800 -ss 6000000 -br 55 -co 45 -drc high -rot 90 -a 12 -a "WProbe:" -o ${path}/image${filename}.jpg`;
     },
     TAKE_PHOTO_DAY_MODE: (path, filename) => {
       return `cd ${
         module.exports.IMAGES_PATH
-      } && raspistill -rot 180 -a 12 -a "WProbe:" -o ${path}/image${filename}.jpg`;
+      } && raspistill -rot 90 -a 12 -a "WProbe:" -o ${path}/image${filename}.jpg`;
     }
   }
 };

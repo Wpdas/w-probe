@@ -79,7 +79,7 @@ function temperatureRoutine() {
     .then(temperature => {
       // Send a warning in case of temperature is very high
       const simpleTemperature = parseInt(temperature.replace('°C', ''));
-      if (simpleTemperature > 70) {
+      if (simpleTemperature > 68) {
         botMessageController.sendMessage(
           `:warning: The system temperature is very high!`
         );
